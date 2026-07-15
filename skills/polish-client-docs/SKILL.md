@@ -1,19 +1,37 @@
 ---
 name: polish-client-docs
-description: Make client-facing documentation clear, easy to understand, and free of duplicated content. Works on pasted text or on locally converted files (.txt, .md, .docx, .pdf exports) from sources like Google Docs, Word, or PDFs. Trigger whenever the user wants to clean up, tighten, clarify, or simplify a client-facing doc, proposal, report, deck, or any prose meant for a non-technical audience — even if they don't say "polish".
+description: Polish client-facing docs into plain language — expand jargon, cut redundancy, keep commitments and the author's voice. Use when the audience is a client or non-technical reader (proposals, reports, SOWs, status updates, decks), or when the user wants to clean up, clarify, tighten, or simplify that kind of prose — even if they don't say "polish". Prefer this over general doc tidying when the reader is external. Not for dead-code cleanup or internal eng docs.
 ---
 
 # Polish Client Docs
 
-Make documentation written for clients clear and easy to understand: plain language, no redundancy, nothing that makes the reader work harder than they should.
+Turn internal or technical writing into something a client reads without effort. Commitments stay locked; language and structure open up.
 
 ## Rules
 
 - **Preserve meaning and commitments.** Never drop or alter scope, dates, prices, deliverables, legal terms, or promises while tightening. When unsure, keep it and flag it.
 - **Write for the reader's knowledge level.** Expand or remove internal jargon, acronyms, and team shorthand. Prefer plain language over impressive language.
-- **Say it once.** Remove hedging, throat-clearing, and repetition. When the same point appears in several places — a sentence or across sections — keep the clearest instance and cut the rest, or reference the single source.
+- **Say it once.** Remove hedging, throat-clearing, and repetition. When the same point appears in several places, keep the clearest instance and cut the rest, or reference the single source.
 - **Keep the author's voice.** Tighten and clarify; don't rewrite into something unrecognizable or generic.
 - **Flag, don't silently change.** If something looks factually wrong, contradictory, or out of date, surface it rather than guessing at a fix.
+
+## Examples
+
+**Technical → client-plain (jargon expanded, commitments kept):**
+
+Before:
+> We'll leverage the OAuth2 handshake to facilitate SSO via IdP federation, pending sign-off on the SOW. Rollout is targeted for Q3 contingent on resource allocation.
+
+After:
+> You'll be able to log in with your existing company account (single sign-on). This starts once you approve the statement of work, and we're aiming for a Q3 launch.
+
+**Keep the author's voice (tighten, don't flatten into generic corporate-speak):**
+
+Before:
+> We are incredibly excited to partner with you on this transformative initiative that will unlock synergies across your organization.
+
+After:
+> We're glad to be working with you on this.
 
 ## Input
 
