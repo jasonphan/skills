@@ -5,27 +5,27 @@ description: Remove dead code and redundant documentation (code comments and sta
 
 # Declutter
 
-> **Remove or tighten anything that doesn't earn its place — without dropping a single real constraint, fact, warning, or structural element.**
+Remove or tighten anything that doesn't earn its place — without dropping a real constraint, fact, warning, or structural element.
 
-- **Redundant content** (dead code, duplicated or stale docs) → *delete* it.
-- **Verbose but valid prose** (same point, more words than it needs) → *rewrite it tight*.
+- **Redundant** (dead code, duplicated/stale docs) → delete
+- **Verbose but valid** (same point, too many words) → rewrite tight
 
 ## Rules
 
-- **Verify before deleting.** Search every caller — including tests, config, and string-based references like dynamic imports or serialization keys. If you can't confirm something is unused, don't delete it; say so.
-- **Respect public boundaries.** Exported symbols, CLI flags, config schemas, and public APIs may be unused internally but are still contracts. Flag these; never remove them silently.
-- **Redundant docs are clutter in any form** — code comments and standalone docs (design docs, READMEs, runbooks). Keep only what adds something new.
-- **Consolidate duplicated docs.** When several docs repeat the same content, keep one authoritative source and replace the rest with a pointer to it.
-- **Keep the change minimal.** Don't refactor working code while tidying; mention bigger simplifications but leave them for another pass.
-- **Don't guess at side effects.** If removal risks behavior changes (logging, metrics, caching), call it out rather than deleting.
+- **Verify before deleting.** Search callers — tests, config, dynamic imports, serialization keys. If unused status is unclear, don't delete; say so.
+- **Respect public boundaries.** Exported symbols, CLI flags, config schemas, public APIs are contracts even if unused internally. Flag; never remove silently.
+- **Docs are clutter in any form** — comments and standalone docs. Keep only what adds something new.
+- **Consolidate duplicates.** Keep one authoritative source; replace the rest with a pointer.
+- **Keep the change minimal.** Don't refactor while tidying; mention bigger simplifications for a later pass.
+- **Don't guess at side effects.** If removal risks behavior (logging, metrics, caching), call it out.
 
 ## When rewriting prose tight
 
 Leaner version of the *same* content — not a paraphrase that drops nuance. When in doubt, keep it and flag it.
 
-- **Lose no meaning.** Preserve every factual claim, constraint, warning, caveat, and example. If two sentences make distinct points, keep them distinct — never fuse them into one generic sentence just to save words.
-- **Preserve formatting structure.** Keep heading hierarchy, tables, code blocks, lists (including nested lists), and callouts. Decluttering means cutting filler and reordering for flow — not converting a table into a paragraph or collapsing a nested list into prose. Keep markdown semantics (links, emphasis, inline code) intact.
-- **Cut filler, not substance.** Remove redundant lead-ins, restated points, and throat-clearing. When the same idea appears twice, keep the sharper instance — but only when they genuinely say the same thing.
+- **Lose no meaning.** Preserve every claim, constraint, warning, caveat, and example. Distinct points stay distinct — don't fuse them into one generic sentence.
+- **Preserve formatting.** Keep headings, tables, code blocks, lists (including nested), callouts, and markdown semantics. Cut filler; don't collapse structure.
+- **Cut filler, not substance.** Drop lead-ins, restatements, throat-clearing. When the same idea appears twice, keep the sharper instance only if they truly say the same thing.
 
 **Example — tightened, every point and the table kept:**
 
@@ -40,13 +40,11 @@ After:
 | MAX_ATTEMPTS | 5 | Per minute, per IP |
 | THROTTLE_MINS | 10 | Applies after limit hit |
 
-Throat-clearing gone; every constraint, the exemption, and the table remain.
-
 ## Workflow
 
-1. **Scope.** If the user names no target, ask whether they want removal, prose tightening, or both. If still unspecified, default to current changes — uncommitted working-tree modifications (e.g. `git status`, `git diff`). Don't sweep the whole repo unprompted.
-2. **Find candidates:** unused code, commented-out code, and docs (code or prose) that are duplicated, stale, or say nothing new.
-3. **Confirm safe.** For docs, pick the authoritative copy before collapsing duplicates. Surface anything public or uncertain.
-4. **Remove or consolidate** in small steps — replace redundant docs with a reference to the single source. For prose, rewrite tight while preserving points and structure.
+1. **Scope.** No target named → ask: removal, prose tightening, or both. Still unclear → default to current changes (`git status` / `git diff`). Don't sweep the whole repo unprompted.
+2. **Find candidates:** unused code, commented-out code, duplicated/stale/empty docs.
+3. **Confirm safe.** Pick the authoritative doc before collapsing duplicates. Surface anything public or uncertain.
+4. **Remove or consolidate** in small steps. For prose, rewrite tight while preserving points and structure.
 5. **Verify** with the project's linter, type checker, and tests if present; report what you ran.
 6. **Summarize:** **Removed** / **Left alone** (reason) / **Verified**.
