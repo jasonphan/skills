@@ -22,7 +22,7 @@ Make client-facing writing easy to skim and hard to misread. A busy stakeholder 
 3. **Voice stays the author's.** Tighten and clarify. Do not flatten into generic corporate speak.
 4. **Structure serves the skim.** Steps, options, and parallel items become lists. Dense paragraph chains of process are a failure mode.
 5. **Flow makes sense.** Sections and paragraphs follow a logic the reader can track without jumping around.
-6. **The prose looks human.** Apply the `unslop` skill to the revised text before you deliver it.
+6. **The prose looks human.** Follow **Human voice** below. Do not depend on another skill for this.
 
 ## What "clear" means here
 
@@ -116,14 +116,18 @@ Flag chronological or causal contradictions instead of inventing an order that p
 
 ## Human voice (no AI tells)
 
-After the clarity rewrite, run `unslop` on the result. For client docs, watch these especially hard:
+This skill is self-contained. Do not call out to another writing skill for voice cleanup.
+
+After the clarity rewrite, scan the result for AI tells and fix them:
 
 - No em dashes. Use a period or a comma.
 - No colon used as a mid-sentence connector. Colons are fine before a list.
-- No chatbot closers ("I hope this helps!", "Let me know if you have any questions!" unless the source already used that and the author wants it).
-- No inflated filler ("transformative", "synergies", "robust solution", "seamless experience").
+- No chatbot closers ("I hope this helps!", "Let me know if you have any questions!") unless the source already used that wording and the author wants it kept.
+- No inflated filler ("transformative", "synergies", "robust solution", "seamless experience", "leverage", "utilize").
+- No "It's not just X, it's Y" constructions. State the point directly.
 - No bold on every noun. Bold sparingly, for true emphasis only.
 - Straight quotes, not curly quotes.
+- Vary sentence length a little. Perfect uniform rhythm reads as generated.
 
 The skill file and your reply follow the same voice rules.
 
@@ -139,7 +143,7 @@ The skill file and your reply follow the same voice rules.
 3. **Fix flow.** Reorder sections and paragraphs so the logic is easy to follow. Merge split threads. Keep prerequisites before dependent steps.
 4. **Restructure for skim.** Turn sequences into numbered lists, peer items into bullets, split dense sentences, shorten paragraphs, put the point first.
 5. **Plain language.** Expand or replace jargon. Cut filler. Keep commitments exact.
-6. **Human pass.** Apply `unslop`. Fix any remaining AI tells.
+6. **Human pass.** Apply **Human voice**. Fix any remaining AI tells.
 7. **Commitment check.** Re-read against the source for dates, prices, scope, and promises. Confirm you did not drop a distinct point while deduping. Flag anything uncertain instead of guessing.
 8. **Deliver.**
    - Revised doc (inline paste, or edit the file).
